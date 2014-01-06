@@ -8,14 +8,14 @@ using System.Web.Mvc;
 
 namespace FamilyRecipes.Controllers
 {
-    public class RecipeController : Controller
+    public class IngredientsController : Controller
     {
         //
-        // GET: /Recipe/
+        // GET: /Ingredient/
         public ActionResult Index()
         {
-            var recipes = RecipeManager.Instance.GetRecipes();
-            return View(recipes);
+            var ingredients = IngredientManager.Instance.GetIngredients();
+            return View(ingredients);
         }
 
         public ActionResult Create()
@@ -25,15 +25,15 @@ namespace FamilyRecipes.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Recipe recipe)
+        public ActionResult Create(RecipeIngredient ingredient)
         {
             if (ModelState.IsValid)
             {
-                recipe.Id = RecipeManager._Instance.NextId();
-                RecipeManager._Instance.ProcessRecipe(recipe);
+                ingredient.Id = IngredientManager.Instance.NextId();
+                IngredientManager.Instance.ProcessIngredient(ingredient);
                 return RedirectToAction("Index");
             }
-            return View(recipe);
+            return View(ingredient);
         }
 	}
 }

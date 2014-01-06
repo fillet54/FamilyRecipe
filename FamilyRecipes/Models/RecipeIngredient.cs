@@ -7,8 +7,10 @@ namespace FamilyRecipes.Models
 {
     public class RecipeIngredient
     {
-        public string Id;
-        public string Name;
-        public string Description;
+        public RecipeIngredient() { }
+
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

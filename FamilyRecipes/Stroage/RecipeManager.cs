@@ -52,5 +52,16 @@ namespace FamilyRecipes.Stroage
         {
             return Recipes[id];
         }
+
+        public void ProcessRecipe(Recipe recipe)
+        {
+            Recipes[recipe.Id] = recipe;
+            SaveToDisk();
+        }
+
+        public string NextId()
+        {
+            return string.Format("{0,10}",Recipes.Count);
+        }
     }
 }
