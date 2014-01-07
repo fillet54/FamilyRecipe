@@ -1,0 +1,16 @@
+﻿@model FamilyRecipes.Models.IngredientMeasurement
+
+<div class="form-horizontal">
+    @using(Html.BeginCollectionItem("Ingredients"))
+    {
+        <div>
+            @Html.LabelFor( m => m.Amount)
+            @Html.EditorFor( m => m.Amount)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Notes)
+            @Html.EditorFor(m => m.Notes)
+        </div>
+        <a href="#" class="deleteRow">delete</a>
+    }
+</div>

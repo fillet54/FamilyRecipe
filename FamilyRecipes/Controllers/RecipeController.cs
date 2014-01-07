@@ -20,7 +20,11 @@ namespace FamilyRecipes.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            var newRecipe = new Recipe
+            {
+                Ingredients = new List<IngredientMeasurement>()
+            };
+            return View(newRecipe);
         }
 
         [HttpPost]
@@ -34,6 +38,11 @@ namespace FamilyRecipes.Controllers
                 return RedirectToAction("Index");
             }
             return View(recipe);
+        }
+
+        public ActionResult BlankIngredientRow()
+        {
+            return PartialView("IngredientEditorRow", new IngredientMeasurement());
         }
 	}
 }
